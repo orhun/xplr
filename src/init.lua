@@ -2,14 +2,13 @@
 local xplr = xplr -- The globally exposed configuration to be overridden.
 ---@diagnostic enable
 
--- This is the built-in configuration file that gets loaded and sets the
--- default values when xplr loads, before loading any other custom
--- configuration file.
+-- This is the built-in configuration file that gets loaded and sets the default values
+-- when xplr loads, before loading any other custom configuration file.
 --
 -- You can use this file as a reference to create a your custom config file.
 --
--- To create a custom configuration file, you need to define the script version
--- for compatibility checks.
+-- To create a custom configuration file, you need to define the script version for
+-- compatibility checks.
 --
 -- See https://xplr.dev/en/upgrade-guide
 --
@@ -17,15 +16,15 @@ local xplr = xplr -- The globally exposed configuration to be overridden.
 -- version = "0.0.0"
 -- ```
 
--- # Configuration ------------------------------------------------------------
+-- # Configuration ---------------------------------------------------------------------
 --
--- xplr can be configured using [Lua][1] via a special file named `init.lua`,
--- which can be placed in `~/.config/xplr/` (local to user) or `/etc/xplr/`
--- (global) depending on the use case.
+-- xplr can be configured using [Lua][1] via a special file named `init.lua`, which can
+-- be placed in `~/.config/xplr/` (local to user) or `/etc/xplr/` (global) depending on
+-- the use case.
 --
--- When xplr loads, it first executes the [built-in init.lua][2] to set the
--- default values, which is then overwritten by another config file, if found
--- using the following lookup order:
+-- When xplr loads, it first executes the [built-in init.lua][2] to set the default
+-- values, which is then overwritten by another config file, if found using the
+-- following lookup order:
 --
 -- 1. `--config /path/to/init.lua`
 -- 2. `~/.config/xplr/init.lua`
@@ -41,10 +40,10 @@ local xplr = xplr -- The globally exposed configuration to be overridden.
 -- [2]: https://github.com/sayanarijit/xplr/blob/main/src/init.lua
 -- [3]: https://xplr.dev/en/upgrade-guide
 
--- ## Config ------------------------------------------------------------------
+-- ## Config ---------------------------------------------------------------------------
 --
--- The xplr configuration, exposed via `xplr.config` Lua API contains the
--- following sections.
+-- The xplr configuration, exposed via `xplr.config` Lua API contains the following
+-- sections.
 --
 -- See:
 --
@@ -53,13 +52,12 @@ local xplr = xplr -- The globally exposed configuration to be overridden.
 -- * [xplr.config.layouts](https://xplr.dev/en/layouts)
 -- * [xplr.config.modes](https://xplr.dev/en/modes)
 
--- ### General Configuration --------------------------------------------------
+-- ### General Configuration -----------------------------------------------------------
 --
--- The general configuration properties are grouped together in
--- `xplr.config.general`.
+-- The general configuration properties are grouped together in `xplr.config.general`.
 
--- Set it to `true` if you want to ignore the startup errors. You can still see
--- the errors in the logs.
+-- Set it to `true` if you want to ignore the startup errors. You can still see the
+-- errors in the logs.
 --
 -- Type: boolean
 xplr.config.general.disable_debug_error_mode = false
@@ -74,14 +72,14 @@ xplr.config.general.enable_mouse = false
 -- Type: boolean
 xplr.config.general.show_hidden = false
 
--- Set it to `true` to use only a subset of selected operations that forbids
--- executing commands or performing write operations on the file-system.
+-- Set it to `true` to use only a subset of selected operations that forbids executing
+-- commands or performing write operations on the file-system.
 --
 -- Type: boolean
 xplr.config.general.read_only = false
 
--- Set it to `true` if you want to enable a safety feature that will save you
--- from yourself when you type recklessly.
+-- Set it to `true` if you want to enable a safety feature that will save you from
+-- yourself when you type recklessly.
 --
 -- Type: boolean
 xplr.config.general.enable_recover_mode = false
@@ -91,10 +89,11 @@ xplr.config.general.enable_recover_mode = false
 -- Type: boolean
 xplr.config.general.hide_remaps_in_help_menu = false
 
--- Set it to `true` if you want the cursor to stay in the same position when
--- the focus is on the first path and you navigate to the previous path
--- (by pressing `up`/`k`), or when the focus is on the last path and you
--- navigate to the next path (by pressing `down`/`j`).
+-- Set it to `true` if you want the cursor to stay in the same position when the focus
+-- is on the first path and you navigate to the previous path (by pressing `up`/`k`), or
+-- when the focus is on the last path and you navigate to the next path (by pressing
+-- `down`/`j`).
+--
 -- The default behavior is to rotate from the last/first path.
 --
 -- Type: boolean
@@ -333,7 +332,8 @@ xplr.config.general.sort_and_filter_ui.default_identifier.format = nil
 -- Type: [Style](https://xplr.dev/en/style)
 xplr.config.general.sort_and_filter_ui.default_identifier.style = {}
 
--- The shape of the forward direction indicator for sort identifiers in Sort & filter panel.
+-- The shape of the forward direction indicator for sort identifiers in Sort & filter
+-- panel.
 --
 -- Type: nullable string
 xplr.config.general.sort_and_filter_ui.sort_direction_identifiers.forward.format = "↓"
@@ -343,7 +343,8 @@ xplr.config.general.sort_and_filter_ui.sort_direction_identifiers.forward.format
 -- Type: [Style](https://xplr.dev/en/style)
 xplr.config.general.sort_and_filter_ui.sort_direction_identifiers.forward.style = nil
 
--- The shape of the reverse direction indicator for sort identifiers in Sort & filter panel.
+-- The shape of the reverse direction indicator for sort identifiers in Sort & filter
+-- panel.
 --
 -- Type: nullable string
 xplr.config.general.sort_and_filter_ui.sort_direction_identifiers.reverse.format = "↑"
@@ -646,7 +647,8 @@ xplr.config.general.panel_ui.sort_and_filter.border_style = {}
 
 -- Initial group if sorters applied to the nodes list in the table.
 --
--- Type: nullable list of [Node Sorter](https://xplr.dev/en/sorting#node-sorter-applicable)
+-- Type: nullable list of
+-- [Node Sorter](https://xplr.dev/en/sorting#node-sorter-applicable)
 xplr.config.general.initial_sorting = {
   { sorter = "ByCanonicalIsDir", reverse = true },
   { sorter = "ByIRelativePath", reverse = false },
@@ -687,14 +689,14 @@ xplr.config.general.global_key_bindings = {
   },
 }
 
--- ### Node Types -------------------------------------------------------------
+-- ### Node Types ----------------------------------------------------------------------
 --
--- This section defines how to deal with different kinds of nodes (files,
--- directories, symlinks etc.) based on their properties.
+-- This section defines how to deal with different kinds of nodes (files, directories,
+-- symlinks etc.) based on their properties.
 --
 -- One node can fall into multiple categories. For example, a node can have the
--- *extension* `md`, and also be a *file*. In that case, the properties from
--- the more  specific category i.e. *extension* will be used.
+-- *extension* `md`, and also be a *file*. In that case, the properties from the more
+-- specific category i.e. *extension* will be used.
 --
 -- This can be configured using the `xplr.config.node_types` Lua API.
 
@@ -758,9 +760,9 @@ xplr.config.node_types.symlink.style = {
 -- ```
 xplr.config.node_types.symlink.meta.icon = "§"
 
--- Metadata and style based on mime types.
--- It is possible to use the wildcard `*` to match all mime sub types. It will
--- be overwritten by the more specific sub types that are defined.
+-- Metadata and style based on mime types. It is possible to use the wildcard `*` to
+-- match all mime sub types. It will be overwritten by the more specific sub types that
+-- are defined.
 --
 -- Type: mapping of the following key-value pairs:
 --
@@ -797,7 +799,10 @@ xplr.config.node_types.mime_essence = {}
 -- Example:
 --
 -- ```lua
--- xplr.config.node_types.extension.md = { meta = { icon = "" }, style = { fg = "Blue" } }
+-- xplr.config.node_types.extension.md = {
+--   meta = { icon = "" },
+--   style = { fg = "Blue" }
+-- }
 -- xplr.config.node_types.extension.rs = { meta = { icon = "🦀" } }
 -- ```
 xplr.config.node_types.extension = {}
@@ -813,19 +818,22 @@ xplr.config.node_types.extension = {}
 --
 -- ```lua
 -- xplr.config.node_types.special["Cargo.toml"] = { meta = { icon = "" } }
--- xplr.config.node_types.special["Downloads"] = { meta = { icon = "" }, style = { fg = "Blue" } }
+-- xplr.config.node_types.special["Downloads"] = {
+--   meta = { icon = "" },
+--   style = { fg = "Blue" }
+-- }
 -- ```
 xplr.config.node_types.special = {}
 
--- ### Layouts ----------------------------------------------------------------
+-- ### Layouts -------------------------------------------------------------------------
 --
--- xplr layouts define the structure of the UI, i.e. how many panel we see,
--- placement and size of the panels, how they look etc.
+-- xplr layouts define the structure of the UI, i.e. how many panel we see, placement
+-- and size of the panels, how they look etc.
 --
 -- This is configuration exposed via the `xplr.config.layouts` API.
 --
--- `xplr.config.layouts.builtin` contain some built-in panels which can be
--- overridden, but you can't add or remove panels in it.
+-- `xplr.config.layouts.builtin` contain some built-in panels which can be overridden,
+-- but you can't add or remove panels in it.
 --
 -- You can add new panels in `xplr.config.layouts.custom`.
 --
@@ -1000,20 +1008,20 @@ xplr.config.layouts.builtin.no_help_no_selection = {
 -- ```
 xplr.config.layouts.custom = {}
 
--- ### Modes ------------------------------------------------------------------
+-- ### Modes ---------------------------------------------------------------------------
 --
--- xplr is a modal file explorer. That means the users switch between different
--- modes, each containing a different set of key bindings to avoid clashes.
--- Users can switch between these modes at run-time.
+-- xplr is a modal file explorer. That means the users switch between different modes,
+-- each containing a different set of key bindings to avoid clashes. Users can switch
+-- between these modes at run-time.
 --
 -- The modes can be configured using the `xplr.config.modes` Lua API.
 --
--- `xplr.config.modes.builtin` contain some built-in modes which can be
--- overridden, but you can't add or remove modes in it.
+-- `xplr.config.modes.builtin` contain some built-in modes which can be overridden, but
+-- you can't add or remove modes in it.
 
 -- The builtin default mode.
--- Visit the [Default Key Bindings](https://xplr.dev/en/default-key-bindings)
--- to see what each mode does.
+-- Visit the [Default Key Bindings](https://xplr.dev/en/default-key-bindings) to see
+-- what each mode does.
 --
 -- Type: [Mode](https://xplr.dev/en/mode)
 xplr.config.modes.builtin.default = {
@@ -1029,10 +1037,7 @@ xplr.config.modes.builtin.default = {
         help = "show hidden",
         messages = {
           {
-            ToggleNodeFilter = {
-              filter = "RelativePathDoesNotStartWith",
-              input = ".",
-            },
+            ToggleNodeFilter = { filter = "RelativePathDoesNotStartWith", input = "." },
           },
           "ExplorePwdAsync",
         },
@@ -1159,7 +1164,7 @@ xplr.config.modes.builtin.default = {
           {
             BashExecSilently = [===[
               NAME=$(basename "${XPLR_FOCUS_PATH:?}")
-              echo SetInputBuffer: "'"${NAME:?}"'" >> "${XPLR_PIPE_MSG_IN:?}"
+              echo "SetInputBuffer: '${NAME:?}'" >> "${XPLR_PIPE_MSG_IN:?}"
             ]===],
           },
         },
@@ -1172,7 +1177,7 @@ xplr.config.modes.builtin.default = {
           {
             BashExecSilently = [===[
               NAME=$(basename "${XPLR_FOCUS_PATH:?}")
-              echo SetInputBuffer: "'"${NAME:?}"'" >> "${XPLR_PIPE_MSG_IN:?}"
+              echo "SetInputBuffer: '${NAME:?}'" >> "${XPLR_PIPE_MSG_IN:?}"
             ]===],
           },
         },
@@ -1208,7 +1213,7 @@ xplr.config.modes.builtin.default = {
         messages = {
           {
             BashExecSilently = [===[
-              echo ChangeDirectory: "'"${HOME:?}"'" >> "${XPLR_PIPE_MSG_IN:?}"
+              echo "ChangeDirectory: '${HOME:?}'" >> "${XPLR_PIPE_MSG_IN:?}"
             ]===],
           },
         },
@@ -1249,29 +1254,21 @@ xplr.config.modes.builtin.default = {
   },
 }
 
-xplr.config.modes.builtin.default.key_bindings.on_key["tab"] =
-  xplr.config.modes.builtin.default.key_bindings.on_key["ctrl-i"]
+xplr.config.modes.builtin.default.key_bindings.on_key["tab"] = xplr.config.modes.builtin.default.key_bindings.on_key["ctrl-i"]
 
-xplr.config.modes.builtin.default.key_bindings.on_key["v"] =
-  xplr.config.modes.builtin.default.key_bindings.on_key.space
+xplr.config.modes.builtin.default.key_bindings.on_key["v"] = xplr.config.modes.builtin.default.key_bindings.on_key["space"]
 
-xplr.config.modes.builtin.default.key_bindings.on_key["V"] =
-  xplr.config.modes.builtin.default.key_bindings.on_key["ctrl-a"]
+xplr.config.modes.builtin.default.key_bindings.on_key["V"] = xplr.config.modes.builtin.default.key_bindings.on_key["ctrl-a"]
 
-xplr.config.modes.builtin.default.key_bindings.on_key["/"] =
-  xplr.config.modes.builtin.default.key_bindings.on_key["ctrl-f"]
+xplr.config.modes.builtin.default.key_bindings.on_key["/"] = xplr.config.modes.builtin.default.key_bindings.on_key["ctrl-f"]
 
-xplr.config.modes.builtin.default.key_bindings.on_key["h"] =
-  xplr.config.modes.builtin.default.key_bindings.on_key.left
+xplr.config.modes.builtin.default.key_bindings.on_key["h"] = xplr.config.modes.builtin.default.key_bindings.on_key["left"]
 
-xplr.config.modes.builtin.default.key_bindings.on_key["j"] =
-  xplr.config.modes.builtin.default.key_bindings.on_key.down
+xplr.config.modes.builtin.default.key_bindings.on_key["j"] = xplr.config.modes.builtin.default.key_bindings.on_key["down"]
 
-xplr.config.modes.builtin.default.key_bindings.on_key["k"] =
-  xplr.config.modes.builtin.default.key_bindings.on_key.up
+xplr.config.modes.builtin.default.key_bindings.on_key["k"] = xplr.config.modes.builtin.default.key_bindings.on_key["up"]
 
-xplr.config.modes.builtin.default.key_bindings.on_key["l"] =
-  xplr.config.modes.builtin.default.key_bindings.on_key.right
+xplr.config.modes.builtin.default.key_bindings.on_key["l"] = xplr.config.modes.builtin.default.key_bindings.on_key["right"]
 
 -- The builtin debug error mode.
 --
@@ -1382,9 +1379,9 @@ xplr.config.modes.builtin.go_to_path = {
           {
             BashExecSilently = [===[
               if [ -d "$XPLR_INPUT_BUFFER" ]; then
-                echo ChangeDirectory: "'"$XPLR_INPUT_BUFFER"'" >> "${XPLR_PIPE_MSG_IN:?}"
+                echo "ChangeDirectory: '$XPLR_INPUT_BUFFER'" >> "${XPLR_PIPE_MSG_IN:?}"
               elif [ -e "$XPLR_INPUT_BUFFER" ]; then
-                echo FocusPath: "'"$XPLR_INPUT_BUFFER"'" >> "${XPLR_PIPE_MSG_IN:?}"
+                echo "FocusPath: '$XPLR_INPUT_BUFFER'" >> "${XPLR_PIPE_MSG_IN:?}"
               fi
             ]===],
           },
@@ -1419,11 +1416,11 @@ xplr.config.modes.builtin.selection_ops = {
           {
             BashExec = [===[
               (while IFS= read -r line; do
-              if cp -vr -- "${line:?}" ./; then
-                echo LogSuccess: $line copied to $PWD >> "${XPLR_PIPE_MSG_IN:?}"
-              else
-                echo LogError: Failed to copy $line to $PWD >> "${XPLR_PIPE_MSG_IN:?}"
-              fi
+                if cp -vr -- "${line:?}" ./; then
+                  echo "LogSuccess: '$line copied to $PWD'" >> "${XPLR_PIPE_MSG_IN:?}"
+                else
+                  echo "LogError: 'Failed to copy $line to $PWD'" >> "${XPLR_PIPE_MSG_IN:?}"
+                fi
               done < "${XPLR_PIPE_SELECTION_OUT:?}")
               echo ExplorePwdAsync >> "${XPLR_PIPE_MSG_IN:?}"
               echo ClearSelection >> "${XPLR_PIPE_MSG_IN:?}"
@@ -1439,11 +1436,11 @@ xplr.config.modes.builtin.selection_ops = {
           {
             BashExec = [===[
               (while IFS= read -r line; do
-              if mv -v -- "${line:?}" ./; then
-                echo LogSuccess: $line moved to $PWD >> "${XPLR_PIPE_MSG_IN:?}"
-              else
-                echo LogError: Failed to move $line to $PWD >> "${XPLR_PIPE_MSG_IN:?}"
-              fi
+                if mv -v -- "${line:?}" ./; then
+                  echo "LogSuccess: '$line moved to $PWD'" >> "${XPLR_PIPE_MSG_IN:?}"
+                else
+                  echo "LogError: 'Failed to move $line to $PWD'" >> "${XPLR_PIPE_MSG_IN:?}"
+                fi
               done < "${XPLR_PIPE_SELECTION_OUT:?}")
               echo ExplorePwdAsync >> "${XPLR_PIPE_MSG_IN:?}"
               read -p "[enter to continue]"
@@ -1456,30 +1453,6 @@ xplr.config.modes.builtin.selection_ops = {
         help = "clear selection",
         messages = {
           "ClearSelection",
-          "PopMode",
-        },
-      },
-      ["x"] = {
-        help = "open in gui",
-        messages = {
-          {
-            BashExecSilently = [===[
-              if [ -z "$OPENER" ]; then
-                if command -v xdg-open; then
-                  OPENER=xdg-open
-                  elif command -v open; then
-                  OPENER=open
-                else
-                  echo 'LogError: $OPENER not found' >> "${XPLR_PIPE_MSG_IN:?}"
-                  exit 1
-                fi
-              fi
-              (while IFS= read -r line; do
-              $OPENER "${line:?}" > /dev/null 2>&1
-              done < "${XPLR_PIPE_RESULT_OUT:?}")
-            ]===],
-          },
-          "ClearScreen",
           "PopMode",
         },
       },
@@ -1534,12 +1507,12 @@ xplr.config.modes.builtin.create_directory = {
           {
             BashExecSilently = [===[
               PTH="$XPLR_INPUT_BUFFER"
-              if [ "${PTH}" ]; then
+              if [ "$PTH" ]; then
                 mkdir -p -- "${PTH:?}" \
                 && echo "SetInputBuffer: ''" >> "${XPLR_PIPE_MSG_IN:?}" \
                 && echo ExplorePwd >> "${XPLR_PIPE_MSG_IN:?}" \
-                && echo LogSuccess: $PTH created >> "${XPLR_PIPE_MSG_IN:?}" \
-                && echo FocusPath: "'"$PTH"'" >> "${XPLR_PIPE_MSG_IN:?}"
+                && echo "LogSuccess: '$PTH created'" >> "${XPLR_PIPE_MSG_IN:?}" \
+                && echo "FocusPath: '$PTH'" >> "${XPLR_PIPE_MSG_IN:?}"
               else
                 echo PopMode >> "${XPLR_PIPE_MSG_IN:?}"
               fi
@@ -1580,9 +1553,9 @@ xplr.config.modes.builtin.create_file = {
                 mkdir -p -- "$(dirname $PTH)" \
                 && touch -- "$PTH" \
                 && echo "SetInputBuffer: ''" >> "${XPLR_PIPE_MSG_IN:?}" \
-                && echo LogSuccess: $PTH created >> "${XPLR_PIPE_MSG_IN:?}" \
+                && echo "LogSuccess: '$PTH created'" >> "${XPLR_PIPE_MSG_IN:?}" \
                 && echo ExplorePwd >> "${XPLR_PIPE_MSG_IN:?}" \
-                && echo FocusPath: "'"$PTH"'" >> "${XPLR_PIPE_MSG_IN:?}"
+                && echo "FocusPath: '$PTH'" >> "${XPLR_PIPE_MSG_IN:?}"
               else
                 echo PopMode >> "${XPLR_PIPE_MSG_IN:?}"
               fi
@@ -1643,10 +1616,8 @@ xplr.config.modes.builtin.number = {
   },
 }
 
-xplr.config.modes.builtin.number.key_bindings.on_key["j"] =
-  xplr.config.modes.builtin.number.key_bindings.on_key.down
-xplr.config.modes.builtin.number.key_bindings.on_key["k"] =
-  xplr.config.modes.builtin.number.key_bindings.on_key.up
+xplr.config.modes.builtin.number.key_bindings.on_key["j"] = xplr.config.modes.builtin.number.key_bindings.on_key["down"]
+xplr.config.modes.builtin.number.key_bindings.on_key["k"] = xplr.config.modes.builtin.number.key_bindings.on_key["up"]
 
 -- The builtin go to mode.
 --
@@ -1685,7 +1656,7 @@ xplr.config.modes.builtin.go_to = {
               if [ -z "$OPENER" ]; then
                 if command -v xdg-open; then
                   OPENER=xdg-open
-                  elif command -v open; then
+                elif command -v open; then
                   OPENER=open
                 else
                   echo 'LogError: $OPENER not found' >> "${XPLR_PIPE_MSG_IN:?}"
@@ -1724,12 +1695,12 @@ xplr.config.modes.builtin.rename = {
               SRC="${XPLR_FOCUS_PATH:?}"
               TARGET="${XPLR_INPUT_BUFFER:?}"
               if [ -e "${TARGET:?}" ]; then
-                echo LogError: $TARGET already exists >> "${XPLR_PIPE_MSG_IN:?}"
+                echo "LogError: '$TARGET already exists'" >> "${XPLR_PIPE_MSG_IN:?}"
               else
                 mv -- "${SRC:?}" "${TARGET:?}" \
                   && echo ExplorePwd >> "${XPLR_PIPE_MSG_IN:?}" \
-                  && echo FocusPath: "'"$TARGET"'" >> "${XPLR_PIPE_MSG_IN:?}" \
-                  && echo LogSuccess: $SRC renamed to $TARGET >> "${XPLR_PIPE_MSG_IN:?}"
+                  && echo "FocusPath: '$TARGET'" >> "${XPLR_PIPE_MSG_IN:?}" \
+                  && echo "LogSuccess: '$SRC renamed to $TARGET'" >> "${XPLR_PIPE_MSG_IN:?}"
               fi
             ]===],
           },
@@ -1766,12 +1737,12 @@ xplr.config.modes.builtin.duplicate_as = {
               SRC="${XPLR_FOCUS_PATH:?}"
               TARGET="${XPLR_INPUT_BUFFER:?}"
               if [ -e "${TARGET:?}" ]; then
-                echo LogError: $TARGET already exists >> "${XPLR_PIPE_MSG_IN:?}"
+                echo "LogError: '$TARGET already exists'" >> "${XPLR_PIPE_MSG_IN:?}"
               else
                 cp -r -- "${SRC:?}" "${TARGET:?}" \
                   && echo ExplorePwd >> "${XPLR_PIPE_MSG_IN:?}" \
-                  && echo FocusPath: "'"$TARGET"'" >> "${XPLR_PIPE_MSG_IN:?}" \
-                  && echo LogSuccess: $SRC duplicated as $TARGET >> "${XPLR_PIPE_MSG_IN:?}"
+                  && echo "FocusPath: '$TARGET'" >> "${XPLR_PIPE_MSG_IN:?}" \
+                  && echo "LogSuccess: '$SRC duplicated as $TARGET'" >> "${XPLR_PIPE_MSG_IN:?}"
               fi
             ]===],
           },
@@ -1800,11 +1771,11 @@ xplr.config.modes.builtin.delete = {
           {
             BashExec = [===[
               (while IFS= read -r line; do
-              if rm -rfv -- "${line:?}"; then
-                echo LogSuccess: $line deleted >> "${XPLR_PIPE_MSG_IN:?}"
-              else
-                echo LogError: Failed to delete $line >> "${XPLR_PIPE_MSG_IN:?}"
-              fi
+                if rm -rfv -- "${line:?}"; then
+                  echo "LogSuccess: '$line deleted'" >> "${XPLR_PIPE_MSG_IN:?}"
+                else
+                  echo "LogError: 'Failed to delete $line'" >> "${XPLR_PIPE_MSG_IN:?}"
+                fi
               done < "${XPLR_PIPE_RESULT_OUT:?}")
               echo ExplorePwdAsync >> "${XPLR_PIPE_MSG_IN:?}"
               read -p "[enter to continue]"
@@ -1819,19 +1790,19 @@ xplr.config.modes.builtin.delete = {
           {
             BashExec = [===[
               (while IFS= read -r line; do
-              if [ -d "$line" ] && [ ! -L "$line" ]; then
-                if rmdir -v -- "${line:?}"; then
-                  echo LogSuccess: $line deleted >> "${XPLR_PIPE_MSG_IN:?}"
+                if [ -d "$line" ] && [ ! -L "$line" ]; then
+                  if rmdir -v -- "${line:?}"; then
+                    echo "LogSuccess: '$line deleted'" >> "${XPLR_PIPE_MSG_IN:?}"
+                  else
+                    echo "LogError: 'Failed to delete $line'" >> "${XPLR_PIPE_MSG_IN:?}"
+                  fi
                 else
-                  echo LogError: Failed to delete $line >> "${XPLR_PIPE_MSG_IN:?}"
+                  if rm -v -- "${line:?}"; then
+                    echo "LogSuccess: '$line deleted'" >> "${XPLR_PIPE_MSG_IN:?}"
+                  else
+                    echo "LogError: 'Failed to delete $line'" >> "${XPLR_PIPE_MSG_IN:?}"
+                  fi
                 fi
-              else
-                if rm -v -- "${line:?}"; then
-                  echo LogSuccess: $line deleted >> "${XPLR_PIPE_MSG_IN:?}"
-                else
-                  echo LogError: Failed to delete $line >> "${XPLR_PIPE_MSG_IN:?}"
-                fi
-              fi
               done < "${XPLR_PIPE_RESULT_OUT:?}")
               echo ExplorePwdAsync >> "${XPLR_PIPE_MSG_IN:?}"
               read -p "[enter to continue]"
@@ -2029,10 +2000,8 @@ xplr.config.modes.builtin.search = {
   },
 }
 
-xplr.config.modes.builtin.search.key_bindings.on_key["ctrl-n"] =
-  xplr.config.modes.builtin.search.key_bindings.on_key.down
-xplr.config.modes.builtin.search.key_bindings.on_key["ctrl-p"] =
-  xplr.config.modes.builtin.search.key_bindings.on_key.up
+xplr.config.modes.builtin.search.key_bindings.on_key["ctrl-n"] = xplr.config.modes.builtin.search.key_bindings.on_key["down"]
+xplr.config.modes.builtin.search.key_bindings.on_key["ctrl-p"] = xplr.config.modes.builtin.search.key_bindings.on_key["up"]
 
 -- The builtin filter mode.
 --
@@ -2420,15 +2389,15 @@ xplr.config.modes.builtin.switch_layout = {
 -- ```
 xplr.config.modes.custom = {}
 
--- ## Function ----------------------------------------------------------------
+-- ## Function -------------------------------------------------------------------------
 --
--- While `xplr.config` defines all the static parts of the configuration,
--- `xplr.fn` defines all the dynamic parts using functions.
+-- While `xplr.config` defines all the static parts of the configuration, `xplr.fn`
+-- defines all the dynamic parts using functions.
 --
 -- See: [Lua Function Calls](https://xplr.dev/en/lua-function-calls)
 --
--- As always, `xplr.fn.builtin` is where the built-in functions are defined
--- that can be overwritten.
+-- As always, `xplr.fn.builtin` is where the built-in functions are defined that can be
+-- overwritten.
 
 -- Tries to auto complete the path in the input buffer
 xplr.fn.builtin.try_complete_path = function(m)
@@ -2633,9 +2602,9 @@ end
 
 -- This is where the custom functions can be added.
 --
--- There is currently no restriction on what kind of functions can be defined
--- in `xplr.fn.custom`.
+-- There is currently no restriction on what kind of functions can be defined in
+-- `xplr.fn.custom`.
 --
--- You can also use nested tables such as
--- `xplr.fn.custom.my_plugin.my_function` to define custom functions.
+-- You can also use nested tables such as `xplr.fn.custom.my_plugin.my_function` to
+-- define custom functions.
 xplr.fn.custom = {}
